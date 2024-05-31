@@ -71,6 +71,9 @@ switch ($current_page) {
                         if ($_SESSION['user_role'] == 1) {
                             ?>
                             <li>
+                                <a href="category.php">Category</a>
+                            </li>
+                            <li>
                                 <a href="users.php">Users</a>
                             </li>
                             <?php
