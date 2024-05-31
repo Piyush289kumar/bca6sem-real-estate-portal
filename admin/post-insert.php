@@ -54,14 +54,14 @@ if ($_SESSION['user_role'] == 0) {
                                         alert('Record is added successfully !!')
                                     </script>
                                     <?php
-                                    // echo "<script>window.location.href='$hostname/admin/post-read.php'</script>";
+                                    echo "<script>window.location.href='$hostname/admin/post-read.php'</script>";
                                 } else {
                                     ?>
                                     <script>
                                         alert('Record is Not added !!')
                                     </script>
                                     <?php
-                                    // echo "<script>window.location.href='$hostname/admin/post-read.php'</script>";
+                                    echo "<script>window.location.href='$hostname/admin/post-read.php'</script>";
                                 }
                             }
                         }
@@ -88,12 +88,13 @@ if ($_SESSION['user_role'] == 0) {
                     <div class="form-group">
                         <label>Type</label>
                         <select class="form-control" name="type">
-                        <option disabled selected>Choose Type....</option>
+                            <option disabled selected>Choose Type....</option>
                             <?php $sql_show_category = "SELECT * FROM category";
                             $result_sql_show_category = mysqli_query($conn, $sql_show_category) or die("Query Failed!! --> sql_show_category");
                             if (mysqli_num_rows($result_sql_show_category) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_sql_show_category)) { ?>
-                                    <option value="<?php echo($row['category_id']) ?>"><?php echo($row['category_name']) ?></option>
+                                    <option value="<?php echo ($row['category_id']) ?>"><?php echo ($row['category_name']) ?>
+                                    </option>
                                 <?php }
                             } ?>
                         </select>
