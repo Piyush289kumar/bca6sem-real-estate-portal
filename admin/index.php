@@ -26,7 +26,7 @@ if (isset($_SESSION['username'])) {
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <!-- logo -->
-                    <h3 class="heading text-center" style="font-weight:700; background:#5C00CE; padding:12px 24px; border-radius:8px; color:#fff;">DJ Rishab</h3>
+                    <h3 class="heading text-center" style="font-weight:700; background:#00B98E; padding:12px 24px; border-radius:8px; color:#fff;">Housing Web Portal</h3>
                     <!-- logo -->
                     <!-- <img class=" logo" src="images/news.jpg"> -->
                     <h3 class="heading text-center" style="font-weight:700">Login</h3>
