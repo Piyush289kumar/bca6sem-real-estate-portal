@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="admin-heading">Modify Event Details</h1>
+                <h1 class="admin-heading">Modify Property Details</h1>
             </div>
             <div class="col-md-2">
                 <a class="add-new" style="background:#E1412E; border-radius:16px;" href="post-read.php"><i class="fa-solid fa-arrow-left"></i>

@@ -1,30 +1,31 @@
 <?php include "header.php"; ?>
-
 <div id="admin-content">
     <div class="container">
         <div class="row">
             <div class="col-md-10 mb-2">
-                <h5 class="admin-heading">All Event</h5>
+                <h5 class="admin-heading">All Property</h5>
             </div>
             <div class="col-md-2">
-                <a class="add-new" href="post-insert.php" style="border-radius:16px; margin-bottom:25px">Add
-                    Event</a>
+                <a class="add-new" href="post-insert.php" style="border-radius:16px; margin-bottom:25px">Add Property</a>
             </div>
             <div class="col-md-12" style="overflow:scroll">
                 <table class="content-table">
                     <thead>
                         <th>S.No.</th>
                         <th>Poster</th>
-                        <th>Date</th>
                         <th>Title</th>
-                        <th>Location</th>
-                        <th>Edit</th>   
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th>Sqft</th>
+                        <th>Bed</th>
+                        <th>Edit</th>
                         <th>Delete</th>
                     </thead>
                     <tbody>
                         <!-- PHP CODE -->
                         <?php
-                        include("config.php");
+                        include ("config.php");
                         if (isset($_GET['page_num_index'])) {
                             $page_num_index_by_addbar = $_GET['page_num_index'];
                         } else {
@@ -37,27 +38,47 @@
                         if (mysqli_num_rows($result_sql_show_user) > 0) {
                             $serial_num = $offset + 1;
                             while ($row = mysqli_fetch_assoc($result_sql_show_user)) {
-                        ?>
+                                ?>
                                 <tr>
                                     <td class='id'>
                                         <?php echo ($serial_num); ?>
                                     </td>
                                     <td style="text-align:center;">
-                                        <img src="upload/<?php echo ($row['aimg']) ?>" alt="Error" style="height: 75px; border-radius:4px">
-                                    </td>
-                                    <td>
-                                        <?php echo ($row['adate']) ?>
+                                        <img src="upload/<?php echo ($row['aimg']) ?>" alt="Error"
+                                            style="height: 75px; border-radius:4px">
                                     </td>
                                     <td>
                                         <?php echo ($row['atitle']) ?>
                                     </td>
                                     <td>
-                                        <?php echo ($row['atype']) ?>
+                                        <?php echo ($row['address']) ?>
                                     </td>
-                                    <td class='edit'><a href='post-update.php?id=<?php echo ($row["aid"]) ?>'><i class='fa fa-edit'></i></a></td>
-                                    <td class='delete'><a href='post-delete.php?id=<?php echo ($row["aid"]) ?>'><i class='fa fa-trash'></i></a></td>
+                                    <td>
+                                        Rs/- <?php echo ($row['price']) ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $cate_id = ($row['atype']);
+                                        $sql_show_category = "SELECT * FROM category WHERE category_id = '{$cate_id}'";
+                                        $result_sql_show_category = mysqli_query($conn, $sql_show_category) or die("Query Failed!! --> sql_show_category");
+                                        if (mysqli_num_rows($result_sql_show_category) > 0) {
+                                            while ($row_cat = mysqli_fetch_assoc($result_sql_show_category)) { ?>
+                                                <?php echo ($row_cat['category_name']) ?>
+                                            <?php }
+                                        } ?>
+                                    </td>
+                                    <td>
+                                        <?php echo ($row['sqft']) ?>
+                                    </td>
+                                    <td>
+                                        <?php echo ($row['bed']) ?>
+                                    </td>
+                                    <td class='edit'><a href='post-update.php?id=<?php echo ($row["aid"]) ?>'><i
+                                                class='fa fa-edit'></i></a></td>
+                                    <td class='delete'><a href='post-delete.php?id=<?php echo ($row["aid"]) ?>'><i
+                                                class='fa fa-trash'></i></a></td>
                                 </tr>
-                        <?php $serial_num++;
+                                <?php $serial_num++;
                             }
                         } ?>
                         <!-- PHP CODE -->
