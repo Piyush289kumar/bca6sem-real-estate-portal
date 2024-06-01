@@ -73,7 +73,7 @@
                 </div>
             </div>
            <div class="col-12">
-            Google Contact Form
+           <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScXZkGaMOCrH7vt_Y86RfLKFTZfyK1dlt8uFFTyrm8__hPmlQ/viewform?embedded=true" width="100%" height="956" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
            </div>
         </div>
     </div>
